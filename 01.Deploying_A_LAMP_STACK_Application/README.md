@@ -17,7 +17,9 @@ On the terminal, `cd` into the directory containing the downloaded private key.
 
 Run the below command to log into the instance via ssh:
 
-`ssh -i <private_keyfile.pem> username@ip-address`
+```
+ssh -i <private_keyfile.pem> username@ip-address
+```
 
 Successful login into ec2 instance:
 ![Successful login into instance](./img/1.logged_into_ec2_instance.png)
@@ -63,7 +65,9 @@ curl http://127.0.0.1:80  or curl http://localhost:80
 ```
 
 To see if our web application server can respond to requests , use the public ip address of our instance on a web browser.
+
 `http://<Public-IP-Address>:80` 
+
 ![view apache page](./img/4.apache_page.png)
 
 ## Installing MySQL
@@ -165,9 +169,15 @@ Paste in the below
 
 Run `esc :wq ` to save and terminate vi editor.
 
-Run `sudo a2ensite projectlampstack` to activate the server block. 
+To activate the server block, run: 
+```
+sudo a2ensite projectlampstack
+```
+To deactivate the default webserver block that comes with apache on default, run:
 
-Run `sudo a2dissite 000-default` to deactivate the default webserver block that comes with apache on default.
+```
+sudo a2dissite 000-default
+``` 
 
 To make sure your configuration file doesn’t contain syntax errors, run:
 
@@ -189,6 +199,7 @@ sudo echo 'Hello LAMP from hostname' $(TOKEN=`curl -X PUT "http://169.254.169.25
 ```
 
 Go to the broswer and open the webpage
+
 `http://<public_ip_address>:80`
 
 ![apache config](./img/9.testing_virtual_config.png)
@@ -199,18 +210,23 @@ To serve an index.php containing the server-side code, you’ll need to edit the
 
 ![index page change](./img/10.index_order_change.png)
 
-Run the `sudo systemctl reload apache2` to restart the apache2 web server for the changes made to the DirectoryIndex to take effect.
+Restart the apache2 web server for the changes made to the DirectoryIndex to take effect by running the command:
+```
+sudo systemctl reload apache2
+``` 
 
 Create an `index.php` file in our webserver block and add the following code using the vim editor
 ```
 sudo vim /var/www/projectlampstack/index.php
 ```
-This will open a blank file. Add the following text, which is valid PHP code, inside the file:
+This will open a blank file. Add the following text, which is a valid PHP code, inside the file:
  ```
  <?php
  phpinfo();
  ```
 
 Input the instance public ip address on a web browser
+
+`http://<public_ip_address>:80`
 
 ![php page](./img/11.php_page.png)
