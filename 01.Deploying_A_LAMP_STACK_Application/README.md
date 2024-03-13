@@ -230,3 +230,10 @@ Input the instance public ip address on a web browser
 `http://<public_ip_address>:80`
 
 ![php page](./img/11.php_page.png)
+
+Remove the file `index.php` file created as it contains sensitive information about the PHP environment and Ubuntu server. 
+
+Run the below command to remove the file:
+```
+sudo rm /var/www/projectlampstack/index.php
+```
