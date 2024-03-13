@@ -27,10 +27,10 @@ Successful login into ec2 instance:
 To deploy the web application, we need to install apache via ubuntu package manager `apt`:
 ```
 # Updating Packages
-$ sudo apt update
+sudo apt update
 
 # Install apache
-$ sudo apt install apache2 -y
+sudo apt install apache2 -y
 
 ```
 
@@ -43,6 +43,6 @@ $ sudo systemctl status apache2
 
 Run the below command to ensure apache2 starts automatically on system boot
 ```
-$ systemctl enable apache2
+systemctl enable apache2
 ```
 
