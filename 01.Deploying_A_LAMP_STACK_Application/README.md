@@ -25,13 +25,15 @@ Successful login into ec2 instance:
 ## Setting Up Apache Web Server
 
 To deploy the web application, we need to install apache via ubuntu package manager `apt`:
+
+Updating Packages
 ```
-# Updating Packages
 sudo apt update
+```
 
-# Install apache
+Install apache
+```
 sudo apt install apache2 -y
-
 ```
 
 To verify that apache2 is running as a Service in our OS, run the following command
