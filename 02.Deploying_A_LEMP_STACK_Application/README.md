@@ -162,7 +162,9 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 ```
 Then echo the below into the `/var/www/projectlemp/index.html` file
 ```
-sudo echo 'Hello LEMP from hostname' $(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlemp/index.html
+sudo echo 'Hello LEMP from hostname' \
+$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' \
+$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlemp/index.html
 ```
 
 Paste public IP address on a browser to see content.
@@ -222,7 +224,7 @@ sudo rm /var/www/projectlemp/info.php
  mysql -u tooling_user -p
  ```
  ![tooling_user_login](./img/9.tooling_user_login.png)
- 
+
 We create a table for the current user inside the `tooling` database and specify content parameters
 
 ```
