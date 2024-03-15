@@ -13,7 +13,7 @@ A `MERN` stack consists of a collection of technologies used for the development
 We will be building a simple todo list application and deploying on AWS cloud EC2 machine.
 
 ## Creating an Ubuntu EC2 Instance
-Login to AWS Cloud Service console and create an Ubuntu EC2 instance. The virtual machine is a linux operating system which serves as the backbone for the LEMP Stack web application. 
+Login to AWS Cloud Service console and create an Ubuntu EC2 instance.
 
 Login into the instance via ssh:
 ```
