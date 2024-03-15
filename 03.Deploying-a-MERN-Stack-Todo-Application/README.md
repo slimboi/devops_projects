@@ -242,6 +242,7 @@ We will need a database to store all information when we make a `post` request t
 - Create a database and a collection 
 
 To connect mongoose(application_db) to our database service we connect to it using the connection credential provided by mLab
+
 ![db_connection](./img/8.db_connection_string.png)
 
 Copy the connection code and save it inside a `.env` file which should be created in the parent `todo` directory
@@ -302,13 +303,17 @@ So far, we have built the backend of our application and in order to test to see
 On Postman, we make a POST request to our database whilst specifying an action in the body of the request.
 
 ![post_request](./img/9.post_success.png)
+
 ![post_success](./img/10.post_database.png)
 
 Then We make a GET request to see if we can get back what has been posted into the database.
+
 ![get_request](./img/11.get_success.png)
 
 We can also make a delete request which deletes and entry using the id of each entry.
+
 ![delete_request](./img/12.delete_success.png)
+
 ![deleted_request](./img/13.delete_in_db.png)
 
 ## Creating Frontend
@@ -348,6 +353,7 @@ In `todo` folder open the `package.json` file. Change the highlighted part of th
 ![package_configuration](./img/15.package_json_edit.png)
 
 In `client` directory, configure *proxy* in `package.json` to ensure we can access our site via using `http://localhost:5000` rather than always including the entire path like `http://localhost:5000/api/todos`.
+
 ![proxy_configuration](./img/16.client_json.png)
 
 Inside `todo` directory, run:
@@ -359,6 +365,7 @@ App should open and be running on port `localhost:3000`.
 Then we allow port 3000 in inbound rules for our security group.
 
 ![npm_run_dev](./img/17.server_running.png)
+
 ![react_webpage](./img/18.react_internet.png)
 
 We now move into the `client` then `src` directory and then create a `components` directory which will contain files that contains our frontend code. Inside the `components` directory we create `Input.js ListTodo.js Todo.js`.
@@ -649,4 +656,5 @@ npm run dev
 ``` 
 
 This builds up the application and spins it up.
+
 ![launched_app](./img/19.todo_project_page.png)
