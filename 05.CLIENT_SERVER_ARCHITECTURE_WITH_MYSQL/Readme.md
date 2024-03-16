@@ -67,4 +67,3 @@ mysql -h <private-ip-address of the database server> -u tooling_user -p
 Check that you have successfully connected to a remote MySQL server and can perform SQL queries. You should something similar to the screenshot below.
 
 ![successful_connection](./img/6.connect_successful_client.png)
-
