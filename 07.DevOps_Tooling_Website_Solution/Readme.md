@@ -1,6 +1,6 @@
 # DevOps-Website-Solution
 
-In this project, as a member of a DevOps team I am implementing a tooling website solution which makes access to DevOps tools within the corporate infrastructure easily accessible. The tools are well known and widely used by multiple DevOps teams. The DevOps Tooling Solution consists of;
+In this project, as a member of a DevOps team I am implementing a tooling website solution which provide access to essential DevOps tools within the corporate infrastructure. The tools are well known and widely used by multiple DevOps teams. The DevOps Tooling Solution consists of;
 
 1. Jenkins - free and open source automation server used to build CI/CD pipelines.
 
