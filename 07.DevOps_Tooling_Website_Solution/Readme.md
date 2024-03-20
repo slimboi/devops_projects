@@ -177,6 +177,8 @@ Add the following line
 ```
 sudo yum install httpd -y
 
+sudo systemctl enable httpd
+
 sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 
 sudo dnf install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
