@@ -140,6 +140,12 @@ Next push code into repository and create a pull request to the main branch. Jen
 
 *Note*: Ansible is `Idempotent`. Idempotency means that if an ansible playbook is run severally, it only makes the change to the server once unless there is a change in the playbook.
 
+![](./img/9.ansible_success.png)
+
+At the end of this project we have implemented a solution that is shown below
+
+![](./img/8.final_architecture.png)
+
 ## Challenge
 
 I kept encountering the error below
