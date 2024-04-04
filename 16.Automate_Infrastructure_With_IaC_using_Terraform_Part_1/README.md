@@ -287,3 +287,88 @@ resource "aws_subnet" "public" {
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 }
 ```
+# Introducing variables.tf & terraform.tfvars
+
+Instead of havng a long lisf of variables in main.tf file, we can actually make our code a lot more readable and better structured by moving out some parts of the configuration content to other files.
+
+- We will put all variable declarations in a separate file
+- And also provide non default values to each of them
+
+1. Create a new file and name it variables.tf
+2. Copy all the variable declarations into the new file.
+3. Create another file, name it terraform.tfvars
+4. Set values for each of the variables.
+
+## Maint.tf
+
+```
+# Get list of availability zones
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+provider "aws" {
+  region = var.region
+}
+
+# Create VPC
+resource "aws_vpc" "main" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_support   = var.enable_dns_support
+  enable_dns_hostnames = var.enable_dns_support
+}
+
+# Create public subnets
+resource "aws_subnet" "public" {
+  count                   = var.preferred_number_of_public_subnets == null ? length(data.aws_availability_zones.available.names) : var.preferred_number_of_public_subnets
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = cidrsubnet(var.vpc_cidr, 4, count.index)
+  map_public_ip_on_launch = true
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
+}
+```
+
+## variables.tf
+
+```
+variable "region" {
+  default = "eu-west-2"
+}
+
+variable "vpc_cidr" {
+  default = "172.16.0.0/16"
+}
+
+variable "enable_dns_support" {
+  default = "true"
+}
+
+variable "enable_dns_hostnames" {
+  default = "true"
+}
+
+variable "preferred_number_of_public_subnets" {
+  default = null
+}
+```
+
+## terraform.tfvars
+
+```
+region = "eu-west-2"
+
+vpc_cidr = "172.16.0.0/16"
+
+enable_dns_support = "true"
+
+enable_dns_hostnames = "true"
+
+preferred_number_of_public_subnets = 2
+```
+You should also have this file structure in the PBL folder.
+
+![pbl_tree](./img/5.pbl_tree.png)
+
+Run `terraform plan` and `terraform apply`. Ensure everything works
+
+![vpc_create_refactor](./img/3.vpc_create_refactor.png)
